@@ -17,12 +17,14 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+ font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
    background: #313131;
 height: 100vh;
+font-size:18px;
 
 }
 *{

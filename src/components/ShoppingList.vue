@@ -1,7 +1,7 @@
 <template>
   <section id="shopping-app">
 <div class="shopping-app">
-<div class="container-text">
+          <div class="container-text">
                 <div class="text">
 
                     <h1>Shopping List</h1>
@@ -95,6 +95,11 @@ align-items: center;
 .container input {
   width: 80%;
   padding: 8px 0px;
+outline:none;
+background:transparent;
+border:none;
+color: #AAAAAA;
+font-size:17px;
 }
 
 .container-text {
@@ -117,5 +122,13 @@ li {
   justify-content: space-between;
   align-items: center;
  color: #AAAAAA;
+}
+
+@media(max-width:332px){
+.fruits,.container-text,.container{
+width:270px;
+max-width:250px;
+
+}
 }
 </style>
