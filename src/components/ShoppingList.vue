@@ -1,7 +1,7 @@
 <template>
   <section id="shopping-app">
 <div class="shopping-app">
-<div class="container-text">
+          <div class="container-text">
                 <div class="text">
 
                     <h1>Shopping List</h1>
@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="container">
-                <input type="text" v-model="currentFruit" v-on:keyup.enter="addFruit" />
+                <input type="text" placeholder="Create list" v-model="currentFruit" v-on:keyup.enter="addFruit" />
                 <span><i class="fa fa-plus" aria-hidden="true"></i></span>
             </div>
 </div>
@@ -46,7 +46,10 @@ export default {
     addFruit() {
       this.fruits.push(this.currentFruit);
       this.currentFruit = "";
-    }
+    },
+	removeFruit(index){
+	this.fruits.splice(index,1)
+	}
   }
 };
 </script>
@@ -95,6 +98,15 @@ align-items: center;
 .container input {
   width: 80%;
   padding: 8px 0px;
+outline:none;
+background:transparent;
+border:none;
+color: #AAAAAA;
+font-size:17px;
+}
+
+::placeholder {
+  color: #AAAAAA;
 }
 
 .container-text {
@@ -117,5 +129,13 @@ li {
   justify-content: space-between;
   align-items: center;
  color: #AAAAAA;
+}
+
+@media(max-width:332px){
+.fruits,.container-text,.container{
+width:270px;
+max-width:250px;
+
+}
 }
 </style>
