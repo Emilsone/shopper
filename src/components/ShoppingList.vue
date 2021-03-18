@@ -6,7 +6,7 @@
 
                     <h1>Shopping List</h1>
                     
-                    <span>Shoppings</span>
+                    <span><i class="fa fa-plus" aria-hidden="true"></i></span>
                 
                 </div>
                 
@@ -15,15 +15,16 @@
                 <ul>
                     <li v-for="(fruit, index) in fruits" :key="index">
                         {{ fruit }}
-				<button class="btn " v-on:click="removeFruit(index)">
-				Remove
-				</button>   
+				<!-- <button class="btn " > -->
+				<i class="fa fa-trash" aria-hidden="true" v-on:click="removeFruit(index)"></i>
+                <!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
+				<!-- </button>    -->
                     </li>
                 </ul>
             </div>
             <div class="container">
                 <input type="text" v-model="currentFruit" v-on:keyup.enter="addFruit" />
-                <span class="">go</span>
+                <span><i class="fa fa-plus" aria-hidden="true"></i></span>
             </div>
 </div>
 </section>
@@ -57,9 +58,16 @@ export default {
   justify-content: center;
 }
 
-/* body {
- 
-} */
+.fa-plus{
+background-color:#FCA954;
+color:#ffffff;
+width:40px;
+height:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:30px
+}
 
 .btn{color: green}
 .fruits {
