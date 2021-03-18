@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="container">
-                <input type="text" v-model="currentFruit" v-on:keyup.enter="addFruit" />
+                <input type="text" placeholder="Create list" v-model="currentFruit" v-on:keyup.enter="addFruit" />
                 <span><i class="fa fa-plus" aria-hidden="true"></i></span>
             </div>
 </div>
@@ -46,7 +46,10 @@ export default {
     addFruit() {
       this.fruits.push(this.currentFruit);
       this.currentFruit = "";
-    }
+    },
+	removeFruit(index){
+	this.fruits.splice(index,1)
+	}
   }
 };
 </script>
@@ -100,6 +103,10 @@ background:transparent;
 border:none;
 color: #AAAAAA;
 font-size:17px;
+}
+
+::placeholder {
+  color: #AAAAAA;
 }
 
 .container-text {
