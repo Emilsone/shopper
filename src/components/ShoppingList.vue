@@ -1,0 +1,113 @@
+<template>
+  <section id="shopping-app">
+<div class="shopping-app">
+<div class="container-text">
+                <div class="text">
+
+                    <h1>Shopping List</h1>
+                    
+                    <span>Shoppings</span>
+                
+                </div>
+                
+            </div>
+            <div class="fruits">
+                <ul>
+                    <li v-for="(fruit, index) in fruits" :key="index">
+                        {{ fruit }}
+				<button class="btn " v-on:click="removeFruit(index)">
+				Remove
+				</button>   
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <input type="text" v-model="currentFruit" v-on:keyup.enter="addFruit" />
+                <span class="">go</span>
+            </div>
+</div>
+</section>
+</template>
+
+<script>
+export default {
+  name: "ShoppingList",
+  //   props: {
+  //     msg: String
+  //   }
+  data() {
+    return {
+      fruits: ["apple", "oranges", "apricots"],
+      currentFruit: ""
+    };
+  },
+  methods: {
+    addFruit() {
+      this.fruits.push(this.currentFruit);
+      this.currentFruit = "";
+    }
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+#shopping-app {
+  display: flex;
+  justify-content: center;
+}
+
+/* body {
+ 
+} */
+
+.btn{color: green}
+.fruits {
+  width: 300px;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #444444;
+}
+
+.container {
+  width: 300px;
+  /* border: 1px solid black; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+align-items: center;
+  padding: 20px;
+  margin: 10px 0px;
+  background: #444444;
+  color: #AAAAAA;
+}
+
+.container input {
+  width: 80%;
+  padding: 8px 0px;
+}
+
+.container-text {
+  width: 300px;
+  /* border: 1px solid black; */
+  padding: 20px;
+  margin: 20px 0px;
+  background: #444444;
+  color: #AAAAAA;
+}
+.text{
+ display: flex;
+  align-items: center;
+justify-content: space-between;
+}
+
+li {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ color: #AAAAAA;
+}
+</style>
