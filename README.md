@@ -1,4 +1,4 @@
-# Shopper
+# Shoper
 
 ## Project setup
 ```
