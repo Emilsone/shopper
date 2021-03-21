@@ -1,5 +1,9 @@
 # Shoper
 
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/76d87211-cfa2-4bb0-acc3-069e106dd26b/deploy-status)](https://app.netlify.com/sites/shoper-vue/deploys)
+
+
 ## Project setup
 ```
 npm install
