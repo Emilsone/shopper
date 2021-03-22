@@ -6,26 +6,24 @@
 
                     <h1>Shopping List</h1>
                     
-                    <span><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                 
                 </div>
                 
             </div>
             <div class="fruits">
                 <ul>
-                    <li v-for="(fruit, index) in fruits" :key="index">
-                        {{ fruit }}
-				<!-- <button class="btn " > -->
-				<i class="fa fa-trash" aria-hidden="true" v-on:click="removeFruit(index)"></i>
-                <!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
-				<!-- </button>    -->
+                    <li v-for="(list, index) in lists" :key="index">
+                        {{ list }}
+				<i class="fa fa-trash" aria-hidden="true" v-on:click="removeList(index)"></i>
                     </li>
                 </ul>
             </div>
             <div class="container">
-                <input type="text" placeholder="Create list" v-model="currentFruit" v-on:keyup.enter="addFruit" />
+                <input type="text" placeholder="Create list" v-model="currentList" v-on:keyup.enter="addList" />
                 <span><i class="fa fa-plus" aria-hidden="true"></i></span>
             </div>
+<p class="footer">Made With ❤ ❤ ❤ By Emilson</p>
 </div>
 </section>
 </template>
@@ -33,22 +31,19 @@
 <script>
 export default {
   name: "ShoppingList",
-  //   props: {
-  //     msg: String
-  //   }
   data() {
     return {
-      fruits: ["apple", "oranges", "apricots"],
-      currentFruit: ""
+      lists: ["Surface Laptop 2", "Google Pixel", "Sony 1000xm4"],
+      currentList: ""
     };
   },
   methods: {
-    addFruit() {
-      this.fruits.push(this.currentFruit);
-      this.currentFruit = "";
+    addList() {
+      this.listss.push(this.currentList);
+      this.currentList = "";
     },
-	removeFruit(index){
-	this.fruits.splice(index,1)
+	removeList(index){
+	this.fruits.splice(index, 1)
 	}
   }
 };
@@ -129,6 +124,10 @@ li {
   justify-content: space-between;
   align-items: center;
  color: #AAAAAA;
+}
+.footer {
+color: #AAAAAA;
+padding: 10px 0px;
 }
 
 @media(max-width:332px){
