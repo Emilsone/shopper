@@ -5,25 +5,36 @@
         <div class="text">
           <h1>Shopping List</h1>
 
-          <span><i class="fa fa-shopping-basket icon-font" aria-hidden="true"></i></span>
+          <span
+            ><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#fca954">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+</svg></span>
         </div>
       </div>
-      <div class="fruits">
-        <ul>
-          <li v-for="(list, index) in lists" :key="index">
-            {{ list }}
+      <div class="list">
+        <li
+          v-for="(list, index) in lists"
+          :key="index"
+          :class="{ removed: list.checked }"
+        >
+          <div class="form-box">
+            <input type="checkbox" v-model="list.checked" class="input-box" />
+
+            <label class="label">
+              {{ list.text }}
+            </label>
             <i
               class="fa fa-trash icon-mouse"
               aria-hidden="true"
               v-on:click="removeList(index)"
             ></i>
-          </li>
-        </ul>
+          </div>
+        </li>
       </div>
       <div class="container">
         <input
           type="text"
-          placeholder="Create list"
+          placeholder="Add new item"
           v-model="currentList"
           v-on:keyup.enter="addList"
         />
@@ -39,13 +50,17 @@ export default {
   name: "ShoppingList",
   data() {
     return {
-      lists: ["Surface Laptop 2", "Google Pixel", "Sony 1000xm4"],
+      lists: [
+        { text: "Surface Laptop 2", checked: false },
+        { text: "GooglePixel 4xl", checked: false },
+        { text: "Sony 1000xm4", checked: false },
+      ],
       currentList: "",
     };
   },
   methods: {
     addList() {
-      this.lists.push(this.currentList);
+      this.lists.push({ text: this.currentList, checked: false });
       this.currentList = "";
     },
     removeList(index) {
@@ -57,6 +72,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form-box > .input-box > .label > .icon-mouse {
+  /* padding:0px 20px; */
+}
+.form-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #aaaaaa;
+  margin: 10px 0px;
+}
+li {
+  list-style-type: none;
+}
+.removed {
+  color: #fca954;
+}
+
+.removed label {
+  text-decoration: line-through;
+}
 #shopping-app {
   display: flex;
   justify-content: center;
@@ -72,19 +107,18 @@ export default {
   align-items: center;
   border-radius: 30px;
 }
-.icon-font{
-  font-size:40px;
+.icon-font {
+  font-size: 40px;
   color: #fca954;
 }
-.icon-font:hover{
-  
+.icon-font:hover {
   transition: all 0.3s ease-in-out;
 }
 
 .btn {
   color: green;
 }
-.fruits {
+.list {
   width: 300px;
   /* border: 1px solid black; */
   display: flex;
@@ -134,13 +168,13 @@ export default {
   justify-content: space-between;
 }
 
-li {
+/* li {
   margin: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #aaaaaa;
-}
+} */
 .footer {
   color: #aaaaaa;
   padding: 10px 0px;
@@ -151,7 +185,7 @@ li {
 }
 
 @media (max-width: 332px) {
-  .fruits,
+  .list,
   .container-text,
   .container {
     width: 270px;
